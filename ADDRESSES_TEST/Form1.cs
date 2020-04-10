@@ -49,8 +49,8 @@ namespace ADDRESSES_TEST
             //DS = client.ReturnDataSetFromServer(authHeader, QUERY.GetMailID(textBox1.Lines[0].ToString()),1);
             //DS = client.ReturnDataSetFromServer(authHeader, QUERY.UPDV_SYSTEM_ONLINE_USERS("jbraziuniene"), 1);
            //DS = client.ReturnDataSetFromServer(authHeader, QUERY.PR_BKIS_GET_OUTDATED_MAILS_LIST("7121","678","16218","1","0"), 1);
-           DS = client.ReturnDataSet(authHeader, Address.PR_BKIS_ADDRESS_STREET_FILTER_BAK_20191028(44,"P. Žad",1));
-           
+          // DS = client.ReturnDataSet(authHeader, Address.PR_BKIS_ADDRESS_STREET_FILTER_BAK_20191028(44,textBox3.Text,textBox4.Text));
+            DS = client.ReturnDataSet(authHeader, Address.Vnl_26_adresai());
 
            // DS = client.ReturnDataSetFromServer(authHeader, QUERY.LP_ADR_KLSF_LOCALITY_TYPES(),1);
            
@@ -63,7 +63,13 @@ namespace ADDRESSES_TEST
             }
             comboBox1.SelectedIndex = 0;
             label1.Text = label1.Text + DS.Tables.Count.ToString();
-
+        
+            comboBox3.DataSource = DT;
+            comboBox3.DisplayMember = "street_name";
+            comboBox3.ValueMember = "street_id";
+            comboBox3.AutoCompleteSource = AutoCompleteSource.CustomSource;
+           
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
