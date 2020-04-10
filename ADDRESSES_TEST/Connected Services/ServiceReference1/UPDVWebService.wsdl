@@ -1,0 +1,2794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ReturnDataSetServerPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSqlCount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serverType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetServerPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDataSetServerPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Connect_MD5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acsess_MD5" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Compression" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Version">
+        <s:complexType />
+      </s:element>
+      <s:element name="VersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sec" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Test2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConnectivityCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnectivityCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConnectivityCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessNavision">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProcessNavisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessNavisionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetFromServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetFromServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDataSetFromServerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlOnServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serverType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlOnServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecSqlOnServerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSql">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecSqlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPK" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intLockTimeout" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LockRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnLockRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnLockRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnLockRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetMirror">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataSetMirrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDataSetMirrorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlMirror">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlMirrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecSqlMirrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReProcessMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strRecID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReProcessMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReProcessMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SimulateMessage">
+        <s:complexType />
+      </s:element>
+      <s:element name="SimulateMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SimulateMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGfUserAddress">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGfUserAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGfUserAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblAtmestiSutarti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ParaiskaVK">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ParaiskosID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SutartiesNr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PardavejoID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Suma" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Trukme" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalyguVariantoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PardavejoAtstovas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vardas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pavarde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AsmensKodas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DokumentoNr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DokumentoGaliojimoData" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DokumentoTipoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gatve" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Namas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Butas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Miestas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Indeksas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefonas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefonas2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaskaitosNr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MokejimoDiena" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Busena" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DokumentuVariantai" type="tns:ArrayOfDokumentuVariantas" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalyguVariantai" type="tns:ArrayOfSalyguVariantas" />
+          <s:element minOccurs="0" maxOccurs="1" name="MokejimuGrafikas" type="tns:MokejimuGrafikas" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pranesimas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Darboviete" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasirasymoVieta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KontrolineEilute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prekes" type="tns:ArrayOfPreke" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElPastas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valiuta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PapildomasKodas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KituPaskolos" type="tns:ArrayOfKituPaskola" />
+          <s:element minOccurs="1" maxOccurs="1" name="KlientoBustoPaskola" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="KlientoVartojimoPaskola" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="KlientoLizingoPaskola" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="KlientoKitaPaskola" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PajamuTipas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pajamos" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PajamuVariantai" type="tns:ArrayOfPajamuVariantas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDokumentuVariantas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DokumentuVariantas" nillable="true" type="tns:DokumentuVariantas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DokumentuVariantas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VariantoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VariantoPav" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSalyguVariantas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalyguVariantas" nillable="true" type="tns:SalyguVariantas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalyguVariantas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SalyguVariantoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pavadinimas" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SutartiesTipoID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MokejimuGrafikas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MenesineImoka" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImokuSuma" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PalukanuNorma" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BKKMN" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SutartiesMokestis" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdministravimoMokestis" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="KreditoSumaViso" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grafikas" type="tns:ArrayOfImoka" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfImoka">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Imoka" nillable="true" type="tns:Imoka" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Imoka">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Terminas" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Periodas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NegrazintasKreditas" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="KreditoImoka" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PalukanuImoka" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdministravimoMokestis" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImokaViso" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPreke">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Preke" nillable="true" type="tns:Preke" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Preke">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PrekesID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pavadinimas" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kiekis" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kaina" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Apdrausta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TurtoRusiesID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerijosNr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfKituPaskola">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KituPaskola" nillable="true" type="tns:KituPaskola" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KituPaskola">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PaskolosID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Kreditorius" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaskolosSuma" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrazinimoTerminas" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MenesioImoka" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PalukanuNorma" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPajamuVariantas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PajamuVariantas" nillable="true" type="tns:PajamuVariantas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PajamuVariantas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VariantoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VariantoPav" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PapildomiDuomenys" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UblAtmestiSutartiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblAtmestiSutartiResult" type="tns:ParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiNaujaParaiskaVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiNaujaParaiskaVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiNaujaParaiskaVKResult" type="tns:ParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiParaiskaVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiParaiskaVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiParaiskaVKResult" type="tns:ParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutartiVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutartiVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutartiVKResult" type="tns:ParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="receiverFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverPersonCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutikimoDokumentaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaNumeruota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="receiverFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverPersonCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaNumeruotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutikimoDokumentaNumeruotaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaUzpildyta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="receiverFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverPersonCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="income" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="homeLoan" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="consumerCredit" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="leasing" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="otherCredits" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaUzpildytaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutikimoDokumentaUzpildytaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaPagalParaiska">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutikimoDokumentaPagalParaiskaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutikimoDokumentaPagalParaiskaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="suma" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="trukme" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiMokejimoGrafikoDokumentaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumentaPagalGrafika">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="suma" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="trukme" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="grafikas" type="tns:MokejimuGrafikas" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumentaPagalGrafikaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiMokejimoGrafikoDokumentaPagalGrafikaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumentaPagalSalygas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="suma" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="trukme" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salyguVariantoID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiMokejimoGrafikoDokumentaPagalSalygasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiMokejimoGrafikoDokumentaPagalSalygasResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutarciuSarasaPagalFiltraVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nuo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="iki" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="sutartiesNr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="asmensKodas" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParaiskaVK">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParaiskaVK" nillable="true" type="tns:ParaiskaVK" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UblGautiSutarciuSarasaPagalFiltraVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutarciuSarasaPagalFiltraVKResult" type="tns:ArrayOfParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutarciuSarasaVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nuo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="iki" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutarciuSarasaVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutarciuSarasaVKResult" type="tns:ArrayOfParaiskaVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutartiesDokumenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paraiskosID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSutartiesDokumentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSutartiesDokumentaResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblSudarytiSutartiVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paraiska" type="tns:ParaiskaVK" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SutartiesSudarymoRezultatasVK">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Sekme" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiulomiVariantai" type="tns:ArrayOfSiulomasVariantas" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pranesimas" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sutikimas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paraiska" type="tns:ParaiskaVK" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiulomasVariantas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiulomasVariantas" nillable="true" type="tns:SiulomasVariantas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiulomasVariantas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Trukme" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MenesioImoka" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Suma" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UblSudarytiSutartiVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblSudarytiSutartiVKResult" type="tns:SutartiesSudarymoRezultatasVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblTikrintiParaiskaVK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paraiska" type="tns:ParaiskaVK" />
+            <s:element minOccurs="1" maxOccurs="1" name="empId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblTikrintiParaiskaVKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblTikrintiParaiskaVKResult" type="tns:SutartiesSudarymoRezultatasVK" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UblGautiSalyguVariantus">
+        <s:complexType />
+      </s:element>
+      <s:element name="UblGautiSalyguVariantusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UblGautiSalyguVariantusResult" type="tns:ArrayOfSalyguVariantas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLBuy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="barCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLBuyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZLBuyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLPay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="barCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLPayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZLPayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZLCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZLCancelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCancelCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZLCancelCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZLCancelCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckUserDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserDataResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageIDList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPackageIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageIDListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageByIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPackageProcError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPackageProcErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogPackageProcErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPackageProcSeccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPackageProcSeccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogPackageProcSeccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablePage_Simulate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablePage_SimulateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTablePage_SimulateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="alWhere" type="tns:ArrayOfArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="alOrder" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTablePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTablePageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSqlPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="alWhere" type="tns:ArrayOfArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="alOrder" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSqlPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSqlPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSPPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSPPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSPPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Certificate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CertificateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CertificateResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReturnDataSetServerPageSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetServerPage" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetServerPageSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetServerPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetServerPageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="VersionSoapIn">
+    <wsdl:part name="parameters" element="tns:Version" />
+  </wsdl:message>
+  <wsdl:message name="VersionSoapOut">
+    <wsdl:part name="parameters" element="tns:VersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test2SoapIn">
+    <wsdl:part name="parameters" element="tns:Test2" />
+  </wsdl:message>
+  <wsdl:message name="Test2SoapOut">
+    <wsdl:part name="parameters" element="tns:Test2Response" />
+  </wsdl:message>
+  <wsdl:message name="ConnectivityCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnectivityCheck" />
+  </wsdl:message>
+  <wsdl:message name="ConnectivityCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectivityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessNavisionSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessNavision" />
+  </wsdl:message>
+  <wsdl:message name="ProcessNavisionSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessNavisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDataSet" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetFromServerSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetFromServer" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetFromServerSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetFromServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetFromServerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlOnServerSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSqlOnServer" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlOnServerSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSqlOnServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlOnServerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSql" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="LockRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:LockRecord" />
+  </wsdl:message>
+  <wsdl:message name="LockRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:LockRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LockRecordAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnLockRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UnLockRecord" />
+  </wsdl:message>
+  <wsdl:message name="UnLockRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UnLockRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnLockRecordAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckRecord" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecordAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetMirrorSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetMirror" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetMirrorSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDataSetMirrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataSetMirrorAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlMirrorSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSqlMirror" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlMirrorSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSqlMirrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlMirrorAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReProcessMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ReProcessMessage" />
+  </wsdl:message>
+  <wsdl:message name="ReProcessMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ReProcessMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SimulateMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SimulateMessage" />
+  </wsdl:message>
+  <wsdl:message name="SimulateMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SimulateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetGfUserAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGfUserAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetGfUserAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGfUserAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGfUserAddressAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblAtmestiSutartiSoapIn">
+    <wsdl:part name="parameters" element="tns:UblAtmestiSutarti" />
+  </wsdl:message>
+  <wsdl:message name="UblAtmestiSutartiSoapOut">
+    <wsdl:part name="parameters" element="tns:UblAtmestiSutartiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblAtmestiSutartiAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiNaujaParaiskaVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiNaujaParaiskaVK" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiNaujaParaiskaVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiNaujaParaiskaVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiNaujaParaiskaVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiParaiskaVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiParaiskaVK" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiParaiskaVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiParaiskaVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiParaiskaVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutartiVK" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutartiVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumenta" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaNumeruotaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaNumeruota" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaNumeruotaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaNumeruotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaNumeruotaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaUzpildytaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaUzpildyta" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaUzpildytaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaUzpildytaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaUzpildytaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaPagalParaiskaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaPagalParaiska" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaPagalParaiskaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutikimoDokumentaPagalParaiskaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutikimoDokumentaPagalParaiskaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumenta" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalGrafikaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafika" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalGrafikaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalGrafikaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalSalygasSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygas" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalSalygasSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygasResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiMokejimoGrafikoDokumentaPagalSalygasAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaPagalFiltraVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutarciuSarasaPagalFiltraVK" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaPagalFiltraVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutarciuSarasaPagalFiltraVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaPagalFiltraVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutarciuSarasaVK" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutarciuSarasaVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutarciuSarasaVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiesDokumentaSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSutartiesDokumenta" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiesDokumentaSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSutartiesDokumentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSutartiesDokumentaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblSudarytiSutartiVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblSudarytiSutartiVK" />
+  </wsdl:message>
+  <wsdl:message name="UblSudarytiSutartiVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblSudarytiSutartiVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblSudarytiSutartiVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblTikrintiParaiskaVKSoapIn">
+    <wsdl:part name="parameters" element="tns:UblTikrintiParaiskaVK" />
+  </wsdl:message>
+  <wsdl:message name="UblTikrintiParaiskaVKSoapOut">
+    <wsdl:part name="parameters" element="tns:UblTikrintiParaiskaVKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblTikrintiParaiskaVKAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSalyguVariantusSoapIn">
+    <wsdl:part name="parameters" element="tns:UblGautiSalyguVariantus" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSalyguVariantusSoapOut">
+    <wsdl:part name="parameters" element="tns:UblGautiSalyguVariantusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UblGautiSalyguVariantusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ZLBuySoapIn">
+    <wsdl:part name="parameters" element="tns:ZLBuy" />
+  </wsdl:message>
+  <wsdl:message name="ZLBuySoapOut">
+    <wsdl:part name="parameters" element="tns:ZLBuyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZLBuyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ZLPaySoapIn">
+    <wsdl:part name="parameters" element="tns:ZLPay" />
+  </wsdl:message>
+  <wsdl:message name="ZLPaySoapOut">
+    <wsdl:part name="parameters" element="tns:ZLPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZLPayAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ZLCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ZLCheck" />
+  </wsdl:message>
+  <wsdl:message name="ZLCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ZLCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZLCheckAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:ZLCancel" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:ZLCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ZLCancelCheck" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ZLCancelCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZLCancelCheckAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserDataSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserData" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserDataSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageIDList" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageIDListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageByID" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageByIDAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LogPackageProcError" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LogPackageProcErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcErrorAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcSeccessSoapIn">
+    <wsdl:part name="parameters" element="tns:LogPackageProcSeccess" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcSeccessSoapOut">
+    <wsdl:part name="parameters" element="tns:LogPackageProcSeccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogPackageProcSeccessAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTablePage_SimulateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTablePage_Simulate" />
+  </wsdl:message>
+  <wsdl:message name="GetTablePage_SimulateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTablePage_SimulateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTablePageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTablePage" />
+  </wsdl:message>
+  <wsdl:message name="GetTablePageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTablePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTablePageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSqlPageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSqlPage" />
+  </wsdl:message>
+  <wsdl:message name="GetSqlPageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSqlPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSqlPageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSPPageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSPPage" />
+  </wsdl:message>
+  <wsdl:message name="GetSPPageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSPPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSPPageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CertificateSoapIn">
+    <wsdl:part name="parameters" element="tns:Certificate" />
+  </wsdl:message>
+  <wsdl:message name="CertificateSoapOut">
+    <wsdl:part name="parameters" element="tns:CertificateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UPDVServiceSoap">
+    <wsdl:operation name="ReturnDataSetServerPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method executes ReturnDataSetServerPage</wsdl:documentation>
+      <wsdl:input message="tns:ReturnDataSetServerPageSoapIn" />
+      <wsdl:output message="tns:ReturnDataSetServerPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns webservice version ID</wsdl:documentation>
+      <wsdl:input message="tns:VersionSoapIn" />
+      <wsdl:output message="tns:VersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns webservice version ID</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns webservice version ID</wsdl:documentation>
+      <wsdl:input message="tns:Test2SoapIn" />
+      <wsdl:output message="tns:Test2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectivityCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method checks is database is onnline</wsdl:documentation>
+      <wsdl:input message="tns:ConnectivityCheckSoapIn" />
+      <wsdl:output message="tns:ConnectivityCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessNavision">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Navision processing of not-processed items</wsdl:documentation>
+      <wsdl:input message="tns:ProcessNavisionSoapIn" />
+      <wsdl:output message="tns:ProcessNavisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql selection query and returns rezults in DataSet</wsdl:documentation>
+      <wsdl:input message="tns:ReturnDataSetSoapIn" />
+      <wsdl:output message="tns:ReturnDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetFromServer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql selection query and returns rezults in DataSet</wsdl:documentation>
+      <wsdl:input message="tns:ReturnDataSetFromServerSoapIn" />
+      <wsdl:output message="tns:ReturnDataSetFromServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlOnServer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql query and returns execution rezult</wsdl:documentation>
+      <wsdl:input message="tns:ExecSqlOnServerSoapIn" />
+      <wsdl:output message="tns:ExecSqlOnServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql query and returns execution rezult</wsdl:documentation>
+      <wsdl:input message="tns:ExecSqlSoapIn" />
+      <wsdl:output message="tns:ExecSqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LockRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method sets lock for record edit operation</wsdl:documentation>
+      <wsdl:input message="tns:LockRecordSoapIn" />
+      <wsdl:output message="tns:LockRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLockRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method removes lock for record edit operation</wsdl:documentation>
+      <wsdl:input message="tns:UnLockRecordSoapIn" />
+      <wsdl:output message="tns:UnLockRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method removes lock for record edit operation</wsdl:documentation>
+      <wsdl:input message="tns:CheckRecordSoapIn" />
+      <wsdl:output message="tns:CheckRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetMirror">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql selection query in Mirror DB and returns rezults in DataSet</wsdl:documentation>
+      <wsdl:input message="tns:ReturnDataSetMirrorSoapIn" />
+      <wsdl:output message="tns:ReturnDataSetMirrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlMirror">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method execute sql query in Mirror DB and returns execution rezult</wsdl:documentation>
+      <wsdl:input message="tns:ExecSqlMirrorSoapIn" />
+      <wsdl:output message="tns:ExecSqlMirrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method initiate UPDV message procession</wsdl:documentation>
+      <wsdl:input message="tns:ProcessMessageSoapIn" />
+      <wsdl:output message="tns:ProcessMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReProcessMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method initiate UPDV message re-procession</wsdl:documentation>
+      <wsdl:input message="tns:ReProcessMessageSoapIn" />
+      <wsdl:output message="tns:ReProcessMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SimulateMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method simulates UPDV message (used for debugin)</wsdl:documentation>
+      <wsdl:input message="tns:SimulateMessageSoapIn" />
+      <wsdl:output message="tns:SimulateMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method initiates data upload to the server</wsdl:documentation>
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGfUserAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns GF web page address for the user</wsdl:documentation>
+      <wsdl:input message="tns:GetGfUserAddressSoapIn" />
+      <wsdl:output message="tns:GetGfUserAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblAtmestiSutarti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancels the contract</wsdl:documentation>
+      <wsdl:input message="tns:UblAtmestiSutartiSoapIn" />
+      <wsdl:output message="tns:UblAtmestiSutartiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiNaujaParaiskaVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets new ParaiskaVK from UBL</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiNaujaParaiskaVKSoapIn" />
+      <wsdl:output message="tns:UblGautiNaujaParaiskaVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiParaiskaVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets ParaiskaVK from UBL</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiParaiskaVKSoapIn" />
+      <wsdl:output message="tns:UblGautiParaiskaVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets UBL contract</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutartiVKSoapIn" />
+      <wsdl:output message="tns:UblGautiSutartiVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumenta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets UBL confirmation document for the receiver</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutikimoDokumentaSoapIn" />
+      <wsdl:output message="tns:UblGautiSutikimoDokumentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaNumeruota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets UBL confirmation document for the receiver</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutikimoDokumentaNumeruotaSoapIn" />
+      <wsdl:output message="tns:UblGautiSutikimoDokumentaNumeruotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaUzpildyta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets UBL confirmation document for the receiver</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutikimoDokumentaUzpildytaSoapIn" />
+      <wsdl:output message="tns:UblGautiSutikimoDokumentaUzpildytaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaPagalParaiska">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets UBL confirmation document for the receiver</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutikimoDokumentaPagalParaiskaSoapIn" />
+      <wsdl:output message="tns:UblGautiSutikimoDokumentaPagalParaiskaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumenta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets payment schedule document</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiMokejimoGrafikoDokumentaSoapIn" />
+      <wsdl:output message="tns:UblGautiMokejimoGrafikoDokumentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalGrafika">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets payment schedule document</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafikaSoapIn" />
+      <wsdl:output message="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafikaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalSalygas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets payment schedule document by variant</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygasSoapIn" />
+      <wsdl:output message="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaPagalFiltraVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets contracts list by filter</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutarciuSarasaPagalFiltraVKSoapIn" />
+      <wsdl:output message="tns:UblGautiSutarciuSarasaPagalFiltraVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets contracts list</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutarciuSarasaVKSoapIn" />
+      <wsdl:output message="tns:UblGautiSutarciuSarasaVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiesDokumenta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets contract document</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSutartiesDokumentaSoapIn" />
+      <wsdl:output message="tns:UblGautiSutartiesDokumentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblSudarytiSutartiVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates contract</wsdl:documentation>
+      <wsdl:input message="tns:UblSudarytiSutartiVKSoapIn" />
+      <wsdl:output message="tns:UblSudarytiSutartiVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblTikrintiParaiskaVK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks sums</wsdl:documentation>
+      <wsdl:input message="tns:UblTikrintiParaiskaVKSoapIn" />
+      <wsdl:output message="tns:UblTikrintiParaiskaVKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSalyguVariantus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets condition variants</wsdl:documentation>
+      <wsdl:input message="tns:UblGautiSalyguVariantusSoapIn" />
+      <wsdl:output message="tns:UblGautiSalyguVariantusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZLBuy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Activates lotto ticket</wsdl:documentation>
+      <wsdl:input message="tns:ZLBuySoapIn" />
+      <wsdl:output message="tns:ZLBuySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZLPay">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informs that lotto won sum was payed</wsdl:documentation>
+      <wsdl:input message="tns:ZLPaySoapIn" />
+      <wsdl:output message="tns:ZLPaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZLCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks lotto ticket</wsdl:documentation>
+      <wsdl:input message="tns:ZLCheckSoapIn" />
+      <wsdl:output message="tns:ZLCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancels lotto ticket. New method since 2015-10-15</wsdl:documentation>
+      <wsdl:input message="tns:ZLCancelSoapIn" />
+      <wsdl:output message="tns:ZLCancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancelCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancels checked status of lotto ticket</wsdl:documentation>
+      <wsdl:input message="tns:ZLCancelCheckSoapIn" />
+      <wsdl:output message="tns:ZLCancelCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method Check GF user data</wsdl:documentation>
+      <wsdl:input message="tns:CheckUserDataSoapIn" />
+      <wsdl:output message="tns:CheckUserDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageIDList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method retrive sinchronization messages list from data base</wsdl:documentation>
+      <wsdl:input message="tns:GetPackageIDListSoapIn" />
+      <wsdl:output message="tns:GetPackageIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns sinchronization message by its ID</wsdl:documentation>
+      <wsdl:input message="tns:GetPackageByIDSoapIn" />
+      <wsdl:output message="tns:GetPackageByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method saves sinchronization package procession error</wsdl:documentation>
+      <wsdl:input message="tns:LogPackageProcErrorSoapIn" />
+      <wsdl:output message="tns:LogPackageProcErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcSeccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method saves sinchronization package evecution seccess status</wsdl:documentation>
+      <wsdl:input message="tns:LogPackageProcSeccessSoapIn" />
+      <wsdl:output message="tns:LogPackageProcSeccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage_Simulate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method executes CustomerProcedure</wsdl:documentation>
+      <wsdl:input message="tns:GetTablePage_SimulateSoapIn" />
+      <wsdl:output message="tns:GetTablePage_SimulateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method executes CustomerProcedure</wsdl:documentation>
+      <wsdl:input message="tns:GetTablePageSoapIn" />
+      <wsdl:output message="tns:GetTablePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSqlPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method executes CustomerProcedure</wsdl:documentation>
+      <wsdl:input message="tns:GetSqlPageSoapIn" />
+      <wsdl:output message="tns:GetSqlPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSPPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method executes </wsdl:documentation>
+      <wsdl:input message="tns:GetSPPageSoapIn" />
+      <wsdl:output message="tns:GetSPPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Certificate">
+      <wsdl:input message="tns:CertificateSoapIn" />
+      <wsdl:output message="tns:CertificateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UPDVServiceSoap" type="tns:UPDVServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnDataSetServerPage">
+      <soap:operation soapAction="http://tempuri.org/ReturnDataSetServerPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReturnDataSetServerPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <soap:operation soapAction="http://tempuri.org/Version" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test2">
+      <soap:operation soapAction="http://tempuri.org/Test2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectivityCheck">
+      <soap:operation soapAction="http://tempuri.org/ConnectivityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessNavision">
+      <soap:operation soapAction="http://tempuri.org/ProcessNavision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSet">
+      <soap:operation soapAction="http://tempuri.org/ReturnDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReturnDataSetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetFromServer">
+      <soap:operation soapAction="http://tempuri.org/ReturnDataSetFromServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReturnDataSetFromServerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlOnServer">
+      <soap:operation soapAction="http://tempuri.org/ExecSqlOnServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecSqlOnServerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <soap:operation soapAction="http://tempuri.org/ExecSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecSqlAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockRecord">
+      <soap:operation soapAction="http://tempuri.org/LockRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LockRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockRecord">
+      <soap:operation soapAction="http://tempuri.org/UnLockRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnLockRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecord">
+      <soap:operation soapAction="http://tempuri.org/CheckRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetMirror">
+      <soap:operation soapAction="http://tempuri.org/ReturnDataSetMirror" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReturnDataSetMirrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlMirror">
+      <soap:operation soapAction="http://tempuri.org/ExecSqlMirror" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecSqlMirrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <soap:operation soapAction="http://tempuri.org/ProcessMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReProcessMessage">
+      <soap:operation soapAction="http://tempuri.org/ReProcessMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimulateMessage">
+      <soap:operation soapAction="http://tempuri.org/SimulateMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGfUserAddress">
+      <soap:operation soapAction="http://tempuri.org/GetGfUserAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetGfUserAddressAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblAtmestiSutarti">
+      <soap:operation soapAction="http://tempuri.org/UblAtmestiSutarti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblAtmestiSutartiAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiNaujaParaiskaVK">
+      <soap:operation soapAction="http://tempuri.org/UblGautiNaujaParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiNaujaParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiParaiskaVK">
+      <soap:operation soapAction="http://tempuri.org/UblGautiParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiVK">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutartiVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutartiVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumenta">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutikimoDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaNumeruota">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaNumeruota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutikimoDokumentaNumeruotaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaUzpildyta">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaUzpildyta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutikimoDokumentaUzpildytaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaPagalParaiska">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaPagalParaiska" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutikimoDokumentaPagalParaiskaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumenta">
+      <soap:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiMokejimoGrafikoDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalGrafika">
+      <soap:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumentaPagalGrafika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafikaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalSalygas">
+      <soap:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumentaPagalSalygas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaPagalFiltraVK">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutarciuSarasaPagalFiltraVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutarciuSarasaPagalFiltraVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaVK">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutarciuSarasaVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutarciuSarasaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiesDokumenta">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSutartiesDokumenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSutartiesDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblSudarytiSutartiVK">
+      <soap:operation soapAction="http://tempuri.org/UblSudarytiSutartiVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblSudarytiSutartiVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblTikrintiParaiskaVK">
+      <soap:operation soapAction="http://tempuri.org/UblTikrintiParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblTikrintiParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSalyguVariantus">
+      <soap:operation soapAction="http://tempuri.org/UblGautiSalyguVariantus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UblGautiSalyguVariantusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLBuy">
+      <soap:operation soapAction="http://tempuri.org/ZLBuy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZLBuyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLPay">
+      <soap:operation soapAction="http://tempuri.org/ZLPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZLPayAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCheck">
+      <soap:operation soapAction="http://tempuri.org/ZLCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZLCheckAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancel">
+      <soap:operation soapAction="http://tempuri.org/ZLCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZLCancelAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancelCheck">
+      <soap:operation soapAction="http://tempuri.org/ZLCancelCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZLCancelCheckAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserData">
+      <soap:operation soapAction="http://tempuri.org/CheckUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageIDList">
+      <soap:operation soapAction="http://tempuri.org/GetPackageIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPackageIDListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageByID">
+      <soap:operation soapAction="http://tempuri.org/GetPackageByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPackageByIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcError">
+      <soap:operation soapAction="http://tempuri.org/LogPackageProcError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogPackageProcErrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcSeccess">
+      <soap:operation soapAction="http://tempuri.org/LogPackageProcSeccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogPackageProcSeccessAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage_Simulate">
+      <soap:operation soapAction="http://tempuri.org/GetTablePage_Simulate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage">
+      <soap:operation soapAction="http://tempuri.org/GetTablePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTablePageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSqlPage">
+      <soap:operation soapAction="http://tempuri.org/GetSqlPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSqlPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSPPage">
+      <soap:operation soapAction="http://tempuri.org/GetSPPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSPPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Certificate">
+      <soap:operation soapAction="http://tempuri.org/Certificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UPDVServiceSoap12" type="tns:UPDVServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnDataSetServerPage">
+      <soap12:operation soapAction="http://tempuri.org/ReturnDataSetServerPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReturnDataSetServerPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <soap12:operation soapAction="http://tempuri.org/Version" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test2">
+      <soap12:operation soapAction="http://tempuri.org/Test2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectivityCheck">
+      <soap12:operation soapAction="http://tempuri.org/ConnectivityCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessNavision">
+      <soap12:operation soapAction="http://tempuri.org/ProcessNavision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSet">
+      <soap12:operation soapAction="http://tempuri.org/ReturnDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReturnDataSetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetFromServer">
+      <soap12:operation soapAction="http://tempuri.org/ReturnDataSetFromServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReturnDataSetFromServerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlOnServer">
+      <soap12:operation soapAction="http://tempuri.org/ExecSqlOnServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecSqlOnServerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <soap12:operation soapAction="http://tempuri.org/ExecSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecSqlAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockRecord">
+      <soap12:operation soapAction="http://tempuri.org/LockRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LockRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockRecord">
+      <soap12:operation soapAction="http://tempuri.org/UnLockRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnLockRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecord">
+      <soap12:operation soapAction="http://tempuri.org/CheckRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckRecordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataSetMirror">
+      <soap12:operation soapAction="http://tempuri.org/ReturnDataSetMirror" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReturnDataSetMirrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqlMirror">
+      <soap12:operation soapAction="http://tempuri.org/ExecSqlMirror" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecSqlMirrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <soap12:operation soapAction="http://tempuri.org/ProcessMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReProcessMessage">
+      <soap12:operation soapAction="http://tempuri.org/ReProcessMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimulateMessage">
+      <soap12:operation soapAction="http://tempuri.org/SimulateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGfUserAddress">
+      <soap12:operation soapAction="http://tempuri.org/GetGfUserAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetGfUserAddressAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblAtmestiSutarti">
+      <soap12:operation soapAction="http://tempuri.org/UblAtmestiSutarti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblAtmestiSutartiAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiNaujaParaiskaVK">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiNaujaParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiNaujaParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiParaiskaVK">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiVK">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutartiVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutartiVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumenta">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutikimoDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaNumeruota">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaNumeruota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutikimoDokumentaNumeruotaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaUzpildyta">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaUzpildyta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutikimoDokumentaUzpildytaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutikimoDokumentaPagalParaiska">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutikimoDokumentaPagalParaiska" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutikimoDokumentaPagalParaiskaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumenta">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiMokejimoGrafikoDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalGrafika">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumentaPagalGrafika" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiMokejimoGrafikoDokumentaPagalGrafikaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiMokejimoGrafikoDokumentaPagalSalygas">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiMokejimoGrafikoDokumentaPagalSalygas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiMokejimoGrafikoDokumentaPagalSalygasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaPagalFiltraVK">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutarciuSarasaPagalFiltraVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutarciuSarasaPagalFiltraVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutarciuSarasaVK">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutarciuSarasaVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutarciuSarasaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSutartiesDokumenta">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSutartiesDokumenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSutartiesDokumentaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblSudarytiSutartiVK">
+      <soap12:operation soapAction="http://tempuri.org/UblSudarytiSutartiVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblSudarytiSutartiVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblTikrintiParaiskaVK">
+      <soap12:operation soapAction="http://tempuri.org/UblTikrintiParaiskaVK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblTikrintiParaiskaVKAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UblGautiSalyguVariantus">
+      <soap12:operation soapAction="http://tempuri.org/UblGautiSalyguVariantus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UblGautiSalyguVariantusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLBuy">
+      <soap12:operation soapAction="http://tempuri.org/ZLBuy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZLBuyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLPay">
+      <soap12:operation soapAction="http://tempuri.org/ZLPay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZLPayAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCheck">
+      <soap12:operation soapAction="http://tempuri.org/ZLCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZLCheckAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancel">
+      <soap12:operation soapAction="http://tempuri.org/ZLCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZLCancelAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZLCancelCheck">
+      <soap12:operation soapAction="http://tempuri.org/ZLCancelCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZLCancelCheckAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserData">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageIDList">
+      <soap12:operation soapAction="http://tempuri.org/GetPackageIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPackageIDListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageByID">
+      <soap12:operation soapAction="http://tempuri.org/GetPackageByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPackageByIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcError">
+      <soap12:operation soapAction="http://tempuri.org/LogPackageProcError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogPackageProcErrorAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPackageProcSeccess">
+      <soap12:operation soapAction="http://tempuri.org/LogPackageProcSeccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogPackageProcSeccessAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage_Simulate">
+      <soap12:operation soapAction="http://tempuri.org/GetTablePage_Simulate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablePage">
+      <soap12:operation soapAction="http://tempuri.org/GetTablePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTablePageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSqlPage">
+      <soap12:operation soapAction="http://tempuri.org/GetSqlPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSqlPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSPPage">
+      <soap12:operation soapAction="http://tempuri.org/GetSPPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSPPageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Certificate">
+      <soap12:operation soapAction="http://tempuri.org/Certificate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UPDVService">
+    <wsdl:port name="UPDVServiceSoap" binding="tns:UPDVServiceSoap">
+      <soap:address location="http://updv:83/UPDVService/UPDVWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UPDVServiceSoap12" binding="tns:UPDVServiceSoap12">
+      <soap12:address location="http://updv:83/UPDVService/UPDVWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
